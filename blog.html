@@ -51,62 +51,124 @@
 
         <script>
 
-            const blogPosts = [
-                {
-                    title: "title 1",
-                    date: "1/1/25",
-                    subject: "subject 1",
-                    slug: "slug1",
-                    tags: ["tag1", "tag2"],
-                },
-                {
-                    title: "title 2",
-                    date: "1/2/25",
-                    subject: "subject 2",
-                    slug: "slug2",
-                    tags: ["tag2", "tag3"],
-                },
-                {
-                    title: "title 3",
-                    date: "1/3/25",
-                    subject: "subject 3",
-                    slug: "slug3",
-                    tags: ["tag1", "tag3"],
-                }
-            ];
-            
 
-            function displayBlogPosts() {
-                const container = document.getElementById('blog-container');
+const blogPosts = [
+    {
+        title: "Title 1",
+        date: "August 2025",
+        readTime: "1 min read",
+        excerpt: "tes...",
+        slug: "title-1",
+        tags: ["tag 1", "tag 2", "tag 3"],
+        content: `
+            <p>test 1</p>
+            
+        `
+    },
+    {
+        title: "Title 2",
+        date: "August 2025", 
+        readTime: "1 min read",
+        excerpt: "tes...",
+        slug: "title-2",
+        tags: ["tag 2", "tag 3"],
+        content: `
+            <p>test 2</p>
+        
+        `
+    },
+    {
+        title: "Title 3", 
+        date: "August 3",
+        readTime: "1 min read",
+        excerpt: "tes..",
+        slug: "title-3", 
+        tags: ["tag1", "tag 3"],
+        content: `
+            <p>test 3</p>
+        
+        `
+    }
+];
+
+function displayBlogPosts() {
+    const container = document.getElementById('blog-container');
     
-                blogPosts.forEach(post => {
-                    const postCard = `
-                        <article class="blog-card" onclick="openBlogPost('${post.slug}')">
-                            <div class="blog-header">
-                                <h2>${post.title}</h2>
-                                <div class="blog-meta">
-                                    <span>${post.date}</span>
-                                </div>
-                            </div>
-                            <p class="blog-subject">${post.subject}</p>
-                            <div class="blog-tags">
-                                ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                            </div>
-                        </article>
-                    `;
-                    container.innerHTML += postCard;
-                });
-            }
+    blogPosts.forEach(post => {
+        const postCard = `
+            <article class="blog-card" onclick="openBlogPost('${post.slug}')">
+                <div class="blog-header">
+                    <h2>${post.title}</h2>
+                    <div class="blog-meta">
+                        <span>${post.date}</span> • <span>${post.readTime}</span>
+                    </div>
+                </div>
+                <p class="blog-excerpt">${post.excerpt}</p>
+                <div class="blog-tags">
+                    ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+            </article>
+        `;
+        container.innerHTML += postCard;
+    });
+}
 
-            function openBlogPost(slug) {
-                alert(`Opening: ${slug}\n\n(bleh)`);
-            }
+function openBlogPost(slug) {
+    const post = blogPosts.find(p => p.slug === slug);
+    if (!post) return;
+    
+    // Create modal HTML
+    const modalHTML = `
+        <div class="blog-modal" id="blog-modal">
+            <div class="blog-modal-content">
+                <div class="blog-modal-header">
+                    <button class="blog-modal-close" onclick="closeBlogPost()">×</button>
+                    <h1 class="blog-modal-title">${post.title}</h1>
+                    <div class="blog-modal-meta">${post.date} • ${post.readTime}</div>
+                    <div class="blog-modal-tags">
+                        ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="blog-modal-body">
+                    ${post.content}
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    setTimeout(() => {
+        document.getElementById('blog-modal').classList.add('active');
+    }, 10);
+    
+    document.body.style.overflow = 'hidden';
+}
 
-            displayBlogPosts();
-            
+function closeBlogPost() {
+    const modal = document.getElementById('blog-modal');
+    modal.classList.remove('active');
+    
+    setTimeout(() => {
+        modal.remove();
+        document.body.style.overflow = 'auto';
+    }, 300);
+}
 
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('blog-modal')) {
+        closeBlogPost();
+    }
+});
 
-        </script>
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeBlogPost();
+    }
+});
+
+displayBlogPosts();
+</script>
         
 
 
