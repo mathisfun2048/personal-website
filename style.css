@@ -4,10 +4,10 @@
     box-sizing: border-box;
 }
 
-    @font-face {
-        font-family: 'Roboto';
-        src: url('../fonts/fonts/Roboto-Black.ttf') format('truetype'),
-    }
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/fonts/Roboto-Black.ttf') format('truetype'),
+}
 
 body {
 
