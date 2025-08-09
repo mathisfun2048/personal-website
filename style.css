@@ -5,8 +5,10 @@
 }
 
 body {
-    font-family: Helvetica, sans-serif
+    font-family: Montebello;
+
 }
+    
 
 
 .navbar {
@@ -39,5 +41,119 @@ body {
 }
 
 .nav-button:hover {
-    color: #666
+    color: #F5494A
+}
+
+
+.home-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    text-align: Left;
+}
+
+.greeting {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.description{
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+
+}
+
+
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #666;
+
+}
+
+#loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 40px;
+}
+
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: black;
+}
+
+.project-card p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.project-links {
+    margin-bottom: 15px;   
+}
+
+.project-links a {
+    display: inline-block;
+    margin-right: 15px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+
+}
+
+.project-links a:hover {
+    border-bottom: 1px solid black;
+}
+
+.project-stats {
+    font-size: 1rem;
+    color: #888;
+    font-family: monospace;
 }
