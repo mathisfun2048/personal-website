@@ -1,6 +1,12 @@
-<!DOCTYPE html> <!-- this tell sbrowser what version of html to expect-->
-<html>
+<!DOCTYPE html> <!-- this tells browser what version of html to expect-->
+<html lang = "en">
     <head>  <!-- head = tells browser info about the page -->
+        <meta charset = "UTF-8" /> <!-- meta = metadata, charset = character set, UTF-8 is the most common encoding-->
+
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0" /> <!-- viewport = how the page is displayed on different devices, content = width of the page, initial scale = zoom level-->
+
+        <title>Arya - Home</title>
+
         <link rel = "stylesheet" href = "style.css" /> <!-- rel is what the file is, href is our file-->
 
 
@@ -9,29 +15,28 @@
 
     
     <body> <!-- body = holds everything you would see on the page-->
-        <h1>Welcome</h1>
-        <p>Hello World!</p>
-        <p>testing testing</p>
-
         
+        <nav class = "navbar">
 
-        <img src = "https://funkypedagogy.com/wp-content/uploads/2024/08/image.png" /> <!-- src = source-->
+            <div class = "nav-left">
 
+                <a href = "index.html" class = "logo-link">
 
-        <img src = "https://cdn.marcopromos.com/09383499-F9CD-4BEF-BDD5-E906CA13DE31/Products/Medium/GA_18057_Yellow.jpg" />
+                    <img src = "logo.svg" alt = "Logo" class = "logo">
 
+                </a>
 
-        <h2>hmmm </h2>
+            </div>
+            
+            <div class = "nav-right">
+                <a href = "projects.html" class = "nav-button">Projects</a>
+                <a href = "blog.html" class = "nav-button">Blog</a>
+                <a href = "cv.html" class = "nav-button">CV</a>
+                <a href = "contact.html" class = "nav-button">Contact</a>
 
-        <h3>hmmm</h3>
+            </div>
 
-        <h4>hmmm</h4>
-
-        <h5>hmmm</h5>
-
-        <h6>hmmm</h6>
-
-
-
+        </nav>
+        
     </body>
 </html>
